@@ -4,9 +4,6 @@ https://developer.android.com/codelabs/jetpack-compose-basics
 
 https://developer.android.com/static/codelabs/jetpack-compose-basics/img/8d24a786bfe1a8f2.gif
 
-![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/d2beb612-54dc-48ac-ac5e-30cad6635f54)
-
-
 ## 1. 
 
 
