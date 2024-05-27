@@ -4,7 +4,7 @@ https://github.com/android/codelab-android-compose
 
 https://developer.android.com/codelabs/jetpack-compose-basics
 
-https://developer.android.com/static/codelabs/jetpack-compose-basics/img/8d24a786bfe1a8f2.gif
+https://m3.material.io/get-started
 
 ## 1. Introduction 
 
@@ -23,6 +23,12 @@ A function is all you need to create a new UI component
 The annotation tells Compose to add special support to the function for updating and maintaining your UI over time
 
 By making small reusable composables, it's easy to build up a library of UI elements used in your app
+
+With Compose, an **Activity** remains the **entry point** to an **Android app**
+
+In our project, **MainActivity** is launched when the user opens the app (as it's specified in the **AndroidManifest.xml** file)
+
+You use **setContent** to define your **layout**, but instead of using an **XML file** as you'd do in the traditional **View system**, you **call Composable functions** within it
 
 ## 2. Starting a new Compose project
 
@@ -83,12 +89,9 @@ fun GreetingPreview() {
 }
 ```
 
+## 3. Application UI 
 
-
-
-## 3. 
-
-
+https://developer.android.com/static/codelabs/jetpack-compose-basics/img/8d24a786bfe1a8f2.gif
 
 ## 4. Code explanation
 
