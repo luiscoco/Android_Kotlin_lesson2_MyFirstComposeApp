@@ -95,7 +95,7 @@ fun GreetingPreview() {
 
 https://developer.android.com/static/codelabs/jetpack-compose-basics/img/8d24a786bfe1a8f2.gif
 
-![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/794afbd7-76a1-4fae-b7a6-4c424d08cb01)
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/068dbb5c-133b-4cc8-9fd0-1b23f037f364)
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/523e404b-7715-400f-bb7d-9cbd8927af03)
 
