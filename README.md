@@ -1,10 +1,10 @@
 # How to create your first Compose App with Android (Jetpack Compose Basics)
 
+https://github.com/android/codelab-android-compose
+
 https://developer.android.com/codelabs/jetpack-compose-basics
 
 https://developer.android.com/static/codelabs/jetpack-compose-basics/img/8d24a786bfe1a8f2.gif
-
-https://github.com/android/codelab-android-compose
 
 ## 1. Introduction 
 
