@@ -4,8 +4,17 @@ https://developer.android.com/codelabs/jetpack-compose-basics
 
 https://developer.android.com/static/codelabs/jetpack-compose-basics/img/8d24a786bfe1a8f2.gif
 
-## 1. 
+## 1. Introduction 
 
+**Jetpack Compose** is a modern toolkit designed to simplify **UI** development
+
+ It combines a **reactive programming** model with the conciseness and ease of use of the **Kotlin** programming language
+
+ It is fully **declarative**, meaning you **describe** your **UI** by calling a series of functions that transform data into a UI hierarchy
+
+ When the underlying **data changes**, the framework **automatically re-executes** these **functions**, updating the UI hierarchy for you
+
+ 
 
 ## 2. 
 
