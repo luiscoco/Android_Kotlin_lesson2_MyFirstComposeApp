@@ -93,6 +93,11 @@ fun GreetingPreview() {
 
 https://developer.android.com/static/codelabs/jetpack-compose-basics/img/8d24a786bfe1a8f2.gif
 
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/523e404b-7715-400f-bb7d-9cbd8927af03)
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/d5bbd54e-27b5-41e3-82d9-2939f3deb44e)
+
+
 ## 4. Code explanation
 
 This code is a simple Android application built using **Jetpack Compose**, which is a modern toolkit for building **native Android UI**
