@@ -97,6 +97,71 @@ https://developer.android.com/static/codelabs/jetpack-compose-basics/img/8d24a78
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/d5bbd54e-27b5-41e3-82d9-2939f3deb44e)
 
+Now compare your code with the solution:
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/17c3406a-f449-4acc-b4be-0acb430f9365)
+
+```kotlin
+import androidx.compose.foundation.layout.fillMaxWidth
+
+@Composable
+fun MyApp(
+    modifier: Modifier = Modifier,
+    names: List<String> = listOf("World", "Compose")
+) {
+    Column(modifier = modifier.padding(vertical = 4.dp)) {
+        for (name in names) {
+            Greeting(name = name)
+        }
+    }
+}
+
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Surface(
+        color = MaterialTheme.colorScheme.primary,
+        modifier = modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+    ) {
+        Column(modifier = Modifier.fillMaxWidth().padding(24.dp)) {
+            Text(text = "Hello ")
+            Text(text = name)
+        }
+    }
+}
+```
+
+In the next step you'll **add a clickable buttont** that expands the Greeting Card
+
+The goal is to create the following layout:
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/9abc1275-5985-4668-bcda-53d8a868356a)
+
+```kotlin
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.ElevatedButton
+// ...
+
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Surface(
+        color = MaterialTheme.colorScheme.primary,
+        modifier = modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+    ) {
+        Row(modifier = Modifier.padding(24.dp)) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(text = "Hello ")
+                Text(text = name)
+            }
+            ElevatedButton(
+                onClick = { /* TODO */ }
+            ) {
+                Text("Show more")
+            }
+        }
+    }
+}
+```
+
 
 ## 4. Code explanation
 
