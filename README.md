@@ -8,9 +8,6 @@ https://developer.android.com/codelabs/jetpack-compose-basics
 
 https://m3.material.io/get-started
 
-![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/70c5e689-68c5-42e2-96a4-a06256c1387a)
-
-
 ## 1. Introduction 
 
 **Jetpack Compose** is a modern toolkit designed to simplify **UI** development
@@ -97,6 +94,8 @@ fun GreetingPreview() {
 ## 3. Application UI 
 
 https://developer.android.com/static/codelabs/jetpack-compose-basics/img/8d24a786bfe1a8f2.gif
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/794afbd7-76a1-4fae-b7a6-4c424d08cb01)
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/523e404b-7715-400f-bb7d-9cbd8927af03)
 
