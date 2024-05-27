@@ -162,6 +162,40 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 }
 ```
 
+To **add internal state to a composable**, you can use the **mutableStateOf** function, which makes Compose recompose functions that read that **State**
+
+**State** and **MutableState** are interfaces that hold some value and trigger UI updates (**recompositions**) whenever that value changes
+
+```kotlin
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    val expanded = remember { mutableStateOf(false) }
+    val extraPadding = if (expanded.value) 48.dp else 0.dp
+    Surface(
+        color = MaterialTheme.colorScheme.primary,
+        modifier = modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+    ) {
+        Row(modifier = Modifier.padding(24.dp)) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(bottom = extraPadding)
+            ) {
+                Text(text = "Hello ")
+                Text(text = name)
+            }
+            ElevatedButton(
+                onClick = { expanded.value = !expanded.value }
+            ) {
+                Text(if (expanded.value) "Show less" else "Show more")
+            }
+        }
+    }
+}
+```
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/d1f1f305-39a8-486d-8232-ac262ae46c65)
+
 
 ## 4. Code explanation
 
