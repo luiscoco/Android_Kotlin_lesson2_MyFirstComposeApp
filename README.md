@@ -2,6 +2,8 @@
 
 https://developer.android.com/codelabs/jetpack-compose-basics
 
+https://developer.android.com/static/codelabs/jetpack-compose-basics/img/8d24a786bfe1a8f2.gif
+
 ## 1. 
 
 
