@@ -22,7 +22,65 @@ The annotation tells Compose to add special support to the function for updating
 
 By making small reusable composables, it's easy to build up a library of UI elements used in your app
 
-## 2. 
+## 2. Starting a new Compose project
+
+To start a new Compose project, open Android Studio
+
+Select **File > New > New Project** from the menu bar
+
+For a new project, choose **Empty Activity** from the available templates
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/b3c0c003-d7d3-4ad0-a5a2-34fc04556a9b)
+
+Click **Next** and configure your project
+
+When choosing the **Empty Activity** template, the following code is generated for you in your project:
+
+The project is already configured to use Compose
+
+The **AndroidManifest.xml** file is created
+
+The **build.gradle.kts** and **app/build.gradle.kts** files contain options and dependencies needed for Compose
+
+After syncing the project, open **MainActivity.kt** and check out the code
+
+**MainActivity.kt**
+
+```kotlin
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            BasicsCodelabTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Greeting("Android")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "Hello $name!",
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    BasicsCodelabTheme {
+        Greeting("Android")
+    }
+}
+```
+
 
 
 
