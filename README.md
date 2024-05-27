@@ -376,7 +376,7 @@ The IconButton changes the expansion state and updates the icon accordingly
 
 ### 4. 7. Preview Functions
 
-These functions are used to preview the composables in Android Studio:
+These functions allow you to **see** how the **UI** components will look **without running the app**:
 
 ```kotlin
 @Preview(showBackground = true, widthDp = 320, heightDp = 320)
@@ -410,7 +410,7 @@ fun MyAppPreview() {
 }
 ```
 
-These functions allow you to see how the UI components will look without running the app
+
 
 
 
