@@ -50,8 +50,7 @@ class MainActivity: ComponentActivity() {
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/2fb9f466-5fde-43c9-bfcc-69d5fcab4856)
 
-
-
+The **MainActivity** class is the **entry point of the application**, and the **onCreate** method **sets up the UI** content using Compose's setContent function
 
 ## 2. Starting a new Compose project
 
