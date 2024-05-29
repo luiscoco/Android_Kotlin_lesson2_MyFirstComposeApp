@@ -192,11 +192,9 @@ How to change a Text Color
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/16f670cd-efe6-4bcd-98f4-b9dde91c3835)
 
-## 1.10. 
+## 1.10. Modify the Text Typography
 
-
-
-
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/5fd1d19c-3763-4f49-923e-257755b5e2d6)
 
 ## 1.11. 
 
