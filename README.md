@@ -91,7 +91,15 @@ To visualize two texts one above the other we use the **Column** component
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/ff8439ad-25e1-4fe1-8c7f-5d175bfcdfc3)
 
-### 1.5. Create a Row
+### 1.5. Create a Column containing three Rows
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/a24e5f25-84f3-4d0f-9aec-2d95f280cbd3)
+
+### 1.6. Create a Row containing an Image and a Column
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/5126b5c4-5118-4cd5-8ea7-3ec7a55e06a2)
+
+### 1.7. 
 
 
 
