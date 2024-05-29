@@ -188,6 +188,10 @@ You can replace this with any other composable content
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/6414c406-b12f-4ac9-a677-e564c0310496)
 
+How to change a Text Color
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/16f670cd-efe6-4bcd-98f4-b9dde91c3835)
+
 ## 1.10. 
 
 
