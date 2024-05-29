@@ -32,6 +32,8 @@ In our project, **MainActivity** is launched when the user opens the app (as it'
 
 You use **setContent** to define your **layout**, but instead of using an **XML file** as you'd do in the traditional **View system**, you **call Composable functions** within it
 
+### 1.1. Create Android Composable application
+
 Let's create a simple Android Composable basic application:
 
 See this youtube video: https://www.youtube.com/watch?v=xv2ZUuO3wwk&list=PLAzlSdU-KYwXYL1V9F-NkCy9MaNial-sm&index=5
@@ -51,6 +53,8 @@ class MainActivity: ComponentActivity() {
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/2fb9f466-5fde-43c9-bfcc-69d5fcab4856)
 
 The **MainActivity** class is the **entry point of the application**, and the **onCreate** method **sets up the UI** content using Compose's setContent function
+
+### 1.2. Create a Compose function
 
 We can now create out first **Compose function**
 
@@ -73,15 +77,22 @@ fun  GreetingsMessage(){
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/81f8d72a-e186-426e-91e4-9c94e9b377d3)
 
+### 1.3. Send a parameter in a function call and crea a Preview Composable
+
 Now we can **send a parameter** in the function call
 
 We can also create a **Preview Composable** to show the UI without running the application
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/292ad8dd-c61d-4315-b01c-74bffeb1b3f2)
 
-To visualize to text one above the other we use the **Column** component
+### 1.4. Create a Column
+
+To visualize two texts one above the other we use the **Column** component
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/ff8439ad-25e1-4fe1-8c7f-5d175bfcdfc3)
+
+### 1.5. Create a Row
+
 
 
 
