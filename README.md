@@ -184,10 +184,9 @@ You can replace this with any other composable content
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/d2aba0fd-81e4-4b8d-8604-dd4f3d171673)
 
-## 1.9. 
+## 1.9. Clip an image with a circularShape and we add a border with a color
 
-
-
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/6414c406-b12f-4ac9-a677-e564c0310496)
 
 ## 1.10. 
 
