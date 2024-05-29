@@ -54,8 +54,6 @@ The **MainActivity** class is the **entry point of the application**, and the **
 
 We can now create out first Compose function
 
-![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/81f8d72a-e186-426e-91e4-9c94e9b377d3)
-
 ```kotlin
 
 class MainActivity: ComponentActivity() {
@@ -72,6 +70,8 @@ fun  GreetingsMessage(){
      Text("Hello World!")
 }
 ```
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/81f8d72a-e186-426e-91e4-9c94e9b377d3)
 
 ## 2. Starting a new Compose project
 
