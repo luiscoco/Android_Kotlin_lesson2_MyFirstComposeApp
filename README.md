@@ -180,11 +180,12 @@ Text("Column X", style = MaterialTheme.typography.bodyLarge): Displays text in e
 
 You can replace this with any other composable content
 
-## 1.8. 
+## 1.8. Adding a function to a Composable
 
-
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/d2aba0fd-81e4-4b8d-8604-dd4f3d171673)
 
 ## 1.9. 
+
 
 
 
