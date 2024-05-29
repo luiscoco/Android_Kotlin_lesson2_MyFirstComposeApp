@@ -32,6 +32,27 @@ In our project, **MainActivity** is launched when the user opens the app (as it'
 
 You use **setContent** to define your **layout**, but instead of using an **XML file** as you'd do in the traditional **View system**, you **call Composable functions** within it
 
+Let's create a simple Android Composable basic application:
+
+See this youtube video: https://www.youtube.com/watch?v=xv2ZUuO3wwk&list=PLAzlSdU-KYwXYL1V9F-NkCy9MaNial-sm&index=5
+
+```kotlin
+
+class MainActivity: ComponentActivity() {
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         setContent{
+             Text("Hello World!")
+         }
+     }
+}
+```
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/2fb9f466-5fde-43c9-bfcc-69d5fcab4856)
+
+
+
+
 ## 2. Starting a new Compose project
 
 To start a new Compose project, open Android Studio
