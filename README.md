@@ -79,6 +79,10 @@ We can also create a **Preview Composable** to show the UI without running the a
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/292ad8dd-c61d-4315-b01c-74bffeb1b3f2)
 
+To visualize to text one above the other we use the **Column** component
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/ff8439ad-25e1-4fe1-8c7f-5d175bfcdfc3)
+
 
 
 ## 2. Starting a new Compose project
