@@ -180,6 +180,26 @@ Text("Column X", style = MaterialTheme.typography.bodyLarge): Displays text in e
 
 You can replace this with any other composable content
 
+## 1.8. 
+
+
+
+## 1.9. 
+
+
+
+## 1.10. 
+
+
+
+
+
+## 1.11. 
+
+
+
+
+## 1.12. 
 
 
 
