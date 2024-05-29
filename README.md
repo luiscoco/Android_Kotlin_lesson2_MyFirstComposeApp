@@ -99,7 +99,88 @@ To visualize two texts one above the other we use the **Column** component
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/5126b5c4-5118-4cd5-8ea7-3ec7a55e06a2)
 
-### 1.7. 
+### 1.7. Create three columns with widths in the ratio 1:2:3
+
+The first column will be the narrowest, the second will be wider, and the third will be the widest
+
+To create three columns with different widths in a Jetpack Compose layout, you can use the Row composable along with Modifier.weight to distribute the available space among the columns
+
+Each column can be given a different weight to control its width proportionally
+
+Here's an example of how to achieve this:
+
+```kotlin
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+
+@Composable
+fun ThreeColumns() {
+    Row(modifier = Modifier.fillMaxWidth()) {
+        // First column with weight 1 (smallest width)
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .padding(8.dp)
+        ) {
+            Text("Column 1", style = MaterialTheme.typography.bodyLarge)
+        }
+
+        // Second column with weight 2 (medium width)
+        Column(
+            modifier = Modifier
+                .weight(2f)
+                .padding(8.dp)
+        ) {
+            Text("Column 2", style = MaterialTheme.typography.bodyLarge)
+        }
+
+        // Third column with weight 3 (largest width)
+        Column(
+            modifier = Modifier
+                .weight(3f)
+                .padding(8.dp)
+        ) {
+            Text("Column 3", style = MaterialTheme.typography.bodyLarge)
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewThreeColumns() {
+    MaterialTheme {
+        ThreeColumns()
+    }
+}
+```
+
+**Explanation**
+
+Row(modifier = Modifier.fillMaxWidth()): Creates a horizontal layout that fills the available width of the parent
+
+Column(modifier = Modifier.weight(xf).padding(8.dp)) { ... }:
+
+Each Column is given a weight modifier. The weight determines how much of the available space each column should take relative to the others
+
+The padding(8.dp) adds some spacing around the content of each column
+
+**Weights**:
+
+The first column has a weight of **1f**, meaning it will take up one part of the available space
+
+The second column has a weight of **2f**, meaning it will take up two parts of the available space
+
+The third column has a weight of **3f**, meaning it will take up three parts of the available space
+
+Text("Column X", style = MaterialTheme.typography.bodyLarge): Displays text in each column
+
+You can replace this with any other composable content
+
+
 
 
 
