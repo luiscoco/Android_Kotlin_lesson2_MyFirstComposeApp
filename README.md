@@ -208,7 +208,17 @@ modifier = Modifier.padding(all = 4.dp),
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/d86b9b85-5232-4cc2-92a5-04973d2c16f7)
 
-## 1.12. 
+## 1.12. Create a Data Object
+
+
+```kotlin
+object DataObject {
+     val messages = listOf(
+
+)
+
+}
+```
 
 
 
