@@ -196,10 +196,9 @@ How to change a Text Color
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/5fd1d19c-3763-4f49-923e-257755b5e2d6)
 
-## 1.11. 
+## 1.11. Adding a form and a padding around a Text
 
-
-
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/d86b9b85-5232-4cc2-92a5-04973d2c16f7)
 
 ## 1.12. 
 
