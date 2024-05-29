@@ -198,6 +198,14 @@ How to change a Text Color
 
 ## 1.11. Adding a form and a padding around a Text
 
+```kotlin
+shadowElevation = 1.dp
+```
+
+```kotlin
+modifier = Modifier.padding(all = 4.dp),
+```
+
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/d86b9b85-5232-4cc2-92a5-04973d2c16f7)
 
 ## 1.12. 
