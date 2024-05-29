@@ -52,7 +52,7 @@ class MainActivity: ComponentActivity() {
 
 The **MainActivity** class is the **entry point of the application**, and the **onCreate** method **sets up the UI** content using Compose's setContent function
 
-We can now create out first Compose function
+We can now create out first **Compose function**
 
 ```kotlin
 
@@ -72,6 +72,14 @@ fun  GreetingsMessage(){
 ```
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/81f8d72a-e186-426e-91e4-9c94e9b377d3)
+
+Now we can **send a parameter** in the function call
+
+We can also create a **Preview Composable** to show the UI without running the application
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/292ad8dd-c61d-4315-b01c-74bffeb1b3f2)
+
+
 
 ## 2. Starting a new Compose project
 
