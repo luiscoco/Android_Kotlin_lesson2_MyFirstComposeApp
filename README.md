@@ -208,7 +208,55 @@ class MainActivity : ComponentActivity() {
 
 ### 1.6. Create a Row containing an Image and a Column
 
-![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/5126b5c4-5118-4cd5-8ea7-3ec7a55e06a2)
+```kotlin
+package com.example.myfirstapp_text_only
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.painterResource
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            Row() {
+                Image(
+                    painter = painterResource(id = R.drawable._d_burger),
+                    contentDescription = "Foto"
+                )
+                Column() {
+                    NombreTarjeta("Daniel")
+                    MensajeTarjeta()
+                }
+            }
+        }
+    }
+
+    @Composable
+    fun NombreTarjeta(name: String) {
+        Text(
+            text = "Hello $name!"
+        )
+    }
+
+    @Composable
+    fun MensajeTarjeta() {
+        Text(
+            text = "Hello esta es una descripcion con Compose"
+        )
+    }
+}
+```
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/a6964470-80b6-46b0-8ab2-8c26207f122a)
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/08402964-3c20-417f-af68-8936550fca8a)
 
 ### 1.7. Create three columns with widths in the ratio 1:2:3
 
