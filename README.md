@@ -720,6 +720,322 @@ This is the Screen 1. We navigate to this screen when we click on the first burg
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/598b15b5-a140-4031-9d7f-abbb609170eb)
 
+## 1.13. We also add three Tabs in the HomeScreen, a Top Navigation Bar, a Bottom Navigation bar and a DropDown Menu
+
+```kotlin
+package com.example.myfirstapp_text_only
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.material.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavHostController
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            val navController = rememberNavController()
+            Scaffold(
+                topBar = { TopBar(navController) },
+                bottomBar = { BottomNavigationBar(navController) }
+            ) { innerPadding ->
+                NavHost(navController = navController, startDestination = "main", modifier = Modifier.padding(innerPadding)) {
+                    composable("main") { MainScreen(navController) }
+                    composable("new_screen1") { NewScreen1(navController) }
+                    composable("new_screen2") { NewScreen2(navController) }
+                }
+            }
+        }
+    }
+
+    @Composable
+    fun TopBar(navController: NavHostController) {
+        var expanded by remember { mutableStateOf(false) }
+
+        TopAppBar(
+            title = { Text("My App") },
+            actions = {
+                IconButton(onClick = { expanded = true }) {
+                    Icon(painter = painterResource(id = android.R.drawable.ic_menu_more), contentDescription = "More")
+                }
+                DropdownMenu(
+                    expanded = expanded,
+                    onDismissRequest = { expanded = false }
+                ) {
+                    DropdownMenuItem(onClick = {
+                        navController.navigate("main")
+                        expanded = false
+                    }) {
+                        Text("Main")
+                    }
+                    DropdownMenuItem(onClick = {
+                        navController.navigate("new_screen1")
+                        expanded = false
+                    }) {
+                        Text("Screen 1")
+                    }
+                    DropdownMenuItem(onClick = {
+                        navController.navigate("new_screen2")
+                        expanded = false
+                    }) {
+                        Text("Screen 2")
+                    }
+                }
+            }
+        )
+    }
+
+    @Composable
+    fun BottomNavigationBar(navController: NavHostController) {
+        BottomNavigation {
+            val navBackStackEntry by navController.currentBackStackEntryAsState()
+            val currentRoute = navBackStackEntry?.destination?.route
+
+            BottomNavigationItem(
+                icon = { Icon(painter = painterResource(id = android.R.drawable.ic_menu_view), contentDescription = "Main") },
+                selected = currentRoute == "main",
+                onClick = {
+                    navController.navigate("main") {
+                        popUpTo(navController.graph.startDestinationId) { saveState = true }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                },
+                label = { Text("Main") }
+            )
+            BottomNavigationItem(
+                icon = { Icon(painter = painterResource(id = android.R.drawable.ic_menu_add), contentDescription = "Screen 1") },
+                selected = currentRoute == "new_screen1",
+                onClick = {
+                    navController.navigate("new_screen1") {
+                        popUpTo(navController.graph.startDestinationId) { saveState = true }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                },
+                label = { Text("Screen 1") }
+            )
+            BottomNavigationItem(
+                icon = { Icon(painter = painterResource(id = android.R.drawable.ic_menu_agenda), contentDescription = "Screen 2") },
+                selected = currentRoute == "new_screen2",
+                onClick = {
+                    navController.navigate("new_screen2") {
+                        popUpTo(navController.graph.startDestinationId) { saveState = true }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                },
+                label = { Text("Screen 2") }
+            )
+        }
+    }
+
+    @Composable
+    fun MainScreen(navController: NavHostController) {
+        val tabs = listOf("Tab 1", "Tab 2", "Tab 3", "Tab 4")
+        var selectedTabIndex by remember { mutableStateOf(0) }
+
+        Column {
+            TabRow(selectedTabIndex = selectedTabIndex) {
+                tabs.forEachIndexed { index, title ->
+                    Tab(
+                        selected = selectedTabIndex == index,
+                        onClick = { selectedTabIndex = index },
+                        text = { Text(title) }
+                    )
+                }
+            }
+            when (selectedTabIndex) {
+                0 -> Tab1Screen(navController)
+                1 -> Tab2Screen()
+                2 -> Tab3Screen()
+                3 -> Tab4Screen()
+            }
+        }
+    }
+
+    @OptIn(ExperimentalMaterialApi::class)
+    @Composable
+    fun NewScreen1(navController: NavHostController) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text("New Screen1") },
+                    navigationIcon = {
+                        IconButton(onClick = { navController.navigateUp() }) {
+                            Icon(painter = painterResource(id = android.R.drawable.ic_menu_revert), contentDescription = "Back")
+                        }
+                    }
+                )
+            },
+            content = { innerPadding ->
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(innerPadding)
+                        .padding(16.dp)
+                ) {
+                    Text(text = "This is New Screen1", style = MaterialTheme.typography.h4)
+                }
+            }
+        )
+    }
+
+    @OptIn(ExperimentalMaterialApi::class)
+    @Composable
+    fun NewScreen2(navController: NavHostController) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text("New Screen2") },
+                    navigationIcon = {
+                        IconButton(onClick = { navController.navigateUp() }) {
+                            Icon(painter = painterResource(id = android.R.drawable.ic_menu_revert), contentDescription = "Back")
+                        }
+                    }
+                )
+            },
+            content = { innerPadding ->
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(innerPadding)
+                        .padding(16.dp)
+                ) {
+                    Text(text = "This is New Screen2", style = MaterialTheme.typography.h4)
+                }
+            }
+        )
+    }
+
+    @Composable
+    fun Tab1Screen(navController: NavHostController) {
+        Column {
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
+            ) {
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .clickable {
+                                navController.navigate("new_screen1")
+                            }
+                    )
+                }
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .clickable {
+                                navController.navigate("new_screen2")
+                            }
+                    )
+                }
+                // Add more items as needed
+            }
+            Row {
+                Column {
+                    ThreeColumns()
+                }
+            }
+        }
+    }
+
+    @Composable
+    fun Tab2Screen() {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+        ) {
+            Text("This is Tab 2", style = MaterialTheme.typography.h4)
+        }
+    }
+
+    @Composable
+    fun Tab3Screen() {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+        ) {
+            Text("This is Tab 3", style = MaterialTheme.typography.h4)
+        }
+    }
+
+    @Composable
+    fun Tab4Screen() {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+        ) {
+            Text("This is Tab 4", style = MaterialTheme.typography.h4)
+        }
+    }
+
+    @Composable
+    fun ThreeColumns() {
+        Row(modifier = Modifier.fillMaxWidth()) {
+            // First column with weight 1 (smallest width)
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(8.dp)
+            ) {
+                Text("Col 1", style = MaterialTheme.typography.subtitle1)
+            }
+
+            // Second column with weight 2 (medium width)
+            Column(
+                modifier = Modifier
+                    .weight(2f)
+                    .padding(8.dp)
+            ) {
+                Text("Col 2", style = MaterialTheme.typography.subtitle1)
+            }
+
+            // Third column with weight 3 (largest width)
+            Column(
+                modifier = Modifier
+                    .weight(3f)
+                    .padding(8.dp)
+            ) {
+                Text("Col 3", style = MaterialTheme.typography.subtitle1)
+            }
+        }
+    }
+}
+```
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/fe66baf5-d61d-4c20-92d9-bfcddcd202c4)
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/d07159d8-c8b5-48a4-b0f0-9a23af9af46b)
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/677487e9-b3c6-49d3-99e9-b4c34ae9e36f)
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/24dbde33-21bc-438c-9202-43589603e1d8)
+
 ## 2. Starting a new Compose project
 
 To start a new Compose project, open Android Studio
