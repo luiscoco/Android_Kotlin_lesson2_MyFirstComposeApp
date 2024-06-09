@@ -742,6 +742,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.NavHostController
+import com.google.accompanist.pager.*
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -843,26 +845,107 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    @OptIn(ExperimentalPagerApi::class)
     @Composable
     fun MainScreen(navController: NavHostController) {
         val tabs = listOf("Tab 1", "Tab 2", "Tab 3", "Tab 4")
-        var selectedTabIndex by remember { mutableStateOf(0) }
+        val pagerState = rememberPagerState()
+        val coroutineScope = rememberCoroutineScope()
 
         Column {
-            TabRow(selectedTabIndex = selectedTabIndex) {
+            // LazyRow with images
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
+            ) {
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .clickable {
+                                navController.navigate("new_screen1")
+                            }
+                    )
+                }
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .clickable {
+                                navController.navigate("new_screen2")
+                            }
+                    )
+                }
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+            }
+
+            // Tabs and HorizontalPager
+            TabRow(selectedTabIndex = pagerState.currentPage) {
                 tabs.forEachIndexed { index, title ->
                     Tab(
-                        selected = selectedTabIndex == index,
-                        onClick = { selectedTabIndex = index },
+                        selected = pagerState.currentPage == index,
+                        onClick = {
+                            coroutineScope.launch {
+                                pagerState.animateScrollToPage(index)
+                            }
+                        },
                         text = { Text(title) }
                     )
                 }
             }
-            when (selectedTabIndex) {
-                0 -> Tab1Screen(navController)
-                1 -> Tab2Screen()
-                2 -> Tab3Screen()
-                3 -> Tab4Screen()
+            HorizontalPager(state = pagerState, count = tabs.size) { page ->
+                when (page) {
+                    0 -> Tab1Screen(navController)
+                    1 -> Tab2Screen()
+                    2 -> Tab3Screen()
+                    3 -> Tab4Screen()
+                }
+            }
+
+            // ThreeColumns content
+            Row {
+                Column {
+                    ThreeColumns()
+                }
             }
         }
     }
@@ -1028,7 +1111,7 @@ class MainActivity : ComponentActivity() {
 }
 ```
 
-![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/fe66baf5-d61d-4c20-92d9-bfcddcd202c4)
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/31a8bd90-78c0-4663-af4e-fba35fd5fd94)
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/d07159d8-c8b5-48a4-b0f0-9a23af9af46b)
 
