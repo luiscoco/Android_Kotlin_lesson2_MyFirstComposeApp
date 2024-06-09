@@ -269,53 +269,78 @@ Each column can be given a different weight to control its width proportionally
 Here's an example of how to achieve this:
 
 ```kotlin
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
+package com.example.myfirstapp_text_only
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 
-@Composable
-fun ThreeColumns() {
-    Row(modifier = Modifier.fillMaxWidth()) {
-        // First column with weight 1 (smallest width)
-        Column(
-            modifier = Modifier
-                .weight(1f)
-                .padding(8.dp)
-        ) {
-            Text("Column 1", style = MaterialTheme.typography.bodyLarge)
-        }
-
-        // Second column with weight 2 (medium width)
-        Column(
-            modifier = Modifier
-                .weight(2f)
-                .padding(8.dp)
-        ) {
-            Text("Column 2", style = MaterialTheme.typography.bodyLarge)
-        }
-
-        // Third column with weight 3 (largest width)
-        Column(
-            modifier = Modifier
-                .weight(3f)
-                .padding(8.dp)
-        ) {
-            Text("Column 3", style = MaterialTheme.typography.bodyLarge)
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            Column() {
+                Row() {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto"
+                    )
+                }
+                Row() {
+                    Column() {
+                        ThreeColumns()
+                    }
+                }
+            }
         }
     }
-}
 
-@Preview(showBackground = true)
-@Composable
-fun PreviewThreeColumns() {
-    MaterialTheme {
-        ThreeColumns()
+    @Composable
+    fun ThreeColumns() {
+        Row(modifier = Modifier.fillMaxWidth()) {
+            // First column with weight 1 (smallest width)
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(8.dp)
+            ) {
+                Text("Col 1", style = MaterialTheme.typography.bodyLarge)
+            }
+
+            // Second column with weight 2 (medium width)
+            Column(
+                modifier = Modifier
+                    .weight(2f)
+                    .padding(8.dp)
+            ) {
+                Text("Col 2", style = MaterialTheme.typography.bodyLarge)
+            }
+
+            // Third column with weight 3 (largest width)
+            Column(
+                modifier = Modifier
+                    .weight(3f)
+                    .padding(8.dp)
+            ) {
+                Text("Col 3", style = MaterialTheme.typography.bodyLarge)
+            }
+        }
     }
 }
 ```
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/dbc50eb6-f57d-45ca-8803-4c46ea62397f)
 
 **Explanation**
 
