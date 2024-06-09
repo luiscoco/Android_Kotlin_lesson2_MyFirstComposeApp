@@ -126,6 +126,43 @@ fun PreviewMensajeTarjeta() {
 
 To visualize two texts one above the other we use the **Column** component
 
+```kotlin
+package com.example.myfirstapp_text_only
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            Column {
+                NombreTarjeta("Daniel")
+                MensajeTarjeta()
+            }
+        }
+    }
+}
+
+@Composable
+fun NombreTarjeta(name: String) {
+    Text(
+        text = "Hello $name!"
+    )
+}
+
+@Composable
+fun MensajeTarjeta() {
+    Text(
+        text = "Hello esta es una descripcion con Compose"
+    )
+}
+```
+
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/ff8439ad-25e1-4fe1-8c7f-5d175bfcdfc3)
 
 ### 1.5. Create a Column containing three Rows
