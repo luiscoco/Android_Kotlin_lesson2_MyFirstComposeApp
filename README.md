@@ -87,6 +87,39 @@ Now we can **send a parameter** in the function call
 
 We can also create a **Preview Composable** to show the UI without running the application
 
+```kotlin
+package com.example.myfirstapp_text_only
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MensajeTarjeta("Daniel")
+        }
+    }
+}
+
+@Composable
+fun MensajeTarjeta(name: String) {
+    Text(
+        text = "Hello $name!"
+    )
+}
+
+@Preview
+@Composable
+fun PreviewMensajeTarjeta() {
+    MensajeTarjeta("Daniel")
+}
+```
+
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/292ad8dd-c61d-4315-b01c-74bffeb1b3f2)
 
 ### 1.4. Create a Column
