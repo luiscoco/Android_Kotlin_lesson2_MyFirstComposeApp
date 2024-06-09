@@ -392,21 +392,333 @@ modifier = Modifier.padding(all = 4.dp),
 
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/d86b9b85-5232-4cc2-92a5-04973d2c16f7)
 
-## 1.12. Create a Data Object
-
+## 1.12. Create a Row with Horizontal Scroll and serveral images and a Column with different size
 
 ```kotlin
-object DataObject {
-     val messages = listOf(
+package com.example.myfirstapp_text_only
 
-)
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            Column {
+                LazyRow(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp)
+                ) {
+                    item(1) {
+                        Image(
+                            painter = painterResource(id = R.drawable._d_burger),
+                            contentDescription = "Foto",
+                            modifier = Modifier.padding(8.dp)
+                        )
+                    }
+                    item(2) {
+                        Image(
+                            painter = painterResource(id = R.drawable._d_burger),
+                            contentDescription = "Foto",
+                            modifier = Modifier.padding(8.dp)
+                        )
+                    }
+                    item(3) {
+                        Image(
+                            painter = painterResource(id = R.drawable._d_burger),
+                            contentDescription = "Foto",
+                            modifier = Modifier.padding(8.dp)
+                        )
+                    }
+                    item(4) {
+                        Image(
+                            painter = painterResource(id = R.drawable._d_burger),
+                            contentDescription = "Foto",
+                            modifier = Modifier.padding(8.dp)
+                        )
+                    }
+                    item(5) {
+                        Image(
+                            painter = painterResource(id = R.drawable._d_burger),
+                            contentDescription = "Foto",
+                            modifier = Modifier.padding(8.dp)
+                        )
+                    }
+                    item(6) {
+                        Image(
+                            painter = painterResource(id = R.drawable._d_burger),
+                            contentDescription = "Foto",
+                            modifier = Modifier.padding(8.dp)
+                        )
+                    }
+                    item(7) {
+                        Image(
+                            painter = painterResource(id = R.drawable._d_burger),
+                            contentDescription = "Foto",
+                            modifier = Modifier.padding(8.dp)
+                        )
+                    }
+                }
+                Row {
+                    Column {
+                        ThreeColumns()
+                    }
+                }
+            }
+        }
+    }
+
+    @Composable
+    fun ThreeColumns() {
+        Row(modifier = Modifier.fillMaxWidth()) {
+            // First column with weight 1 (smallest width)
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(8.dp)
+            ) {
+                Text("Col 1", style = MaterialTheme.typography.bodyLarge)
+            }
+
+            // Second column with weight 2 (medium width)
+            Column(
+                modifier = Modifier
+                    .weight(2f)
+                    .padding(8.dp)
+            ) {
+                Text("Col 2", style = MaterialTheme.typography.bodyLarge)
+            }
+
+            // Third column with weight 3 (largest width)
+            Column(
+                modifier = Modifier
+                    .weight(3f)
+                    .padding(8.dp)
+            ) {
+                Text("Col 3", style = MaterialTheme.typography.bodyLarge)
+            }
+        }
+    }
 }
 ```
 
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/09eba6df-470b-4a4d-8849-f673c14a7dbe)
 
+## 1.13. We also add two screens with a top bar with a navigation button to go back to the home screen
 
+```kotlin
+package com.example.myfirstapp_text_only
 
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavHostController
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            val navController = rememberNavController()
+            NavHost(navController = navController, startDestination = "main") {
+                composable("main") { MainScreen(navController) }
+                composable("new_screen1") { NewScreen1(navController) }
+                composable("new_screen2") { NewScreen2(navController) }
+            }
+        }
+    }
+
+    @Composable
+    fun MainScreen(navController: NavHostController) {
+        Column {
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
+            ) {
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .clickable {
+                                navController.navigate("new_screen1")
+                            }
+                    )
+                }
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .clickable {
+                                navController.navigate("new_screen2")
+                            }
+                    )
+                }
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+                item {
+                    Image(
+                        painter = painterResource(id = R.drawable._d_burger),
+                        contentDescription = "Foto",
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+            }
+            Row {
+                Column {
+                    ThreeColumns()
+                }
+            }
+        }
+    }
+
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    fun NewScreen1(navController: NavHostController) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text("New Screen1") },
+                    navigationIcon = {
+                        IconButton(onClick = { navController.navigateUp() }) {
+                            Icon(painter = painterResource(id = android.R.drawable.ic_menu_revert), contentDescription = "Back")
+                        }
+                    }
+                )
+            },
+            content = { innerPadding ->
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(innerPadding)
+                        .padding(16.dp)
+                ) {
+                    Text(text = "This is New Screen1", style = MaterialTheme.typography.bodyLarge)
+                }
+            }
+        )
+    }
+
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    fun NewScreen2(navController: NavHostController) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text("New Screen2") },
+                    navigationIcon = {
+                        IconButton(onClick = { navController.navigateUp() }) {
+                            Icon(painter = painterResource(id = android.R.drawable.ic_menu_revert), contentDescription = "Back")
+                        }
+                    }
+                )
+            },
+            content = { innerPadding ->
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(innerPadding)
+                        .padding(16.dp)
+                ) {
+                    Text(text = "This is New Screen2", style = MaterialTheme.typography.bodyLarge)
+                }
+            }
+        )
+    }
+
+    @Composable
+    fun ThreeColumns() {
+        Row(modifier = Modifier.fillMaxWidth()) {
+            // First column with weight 1 (smallest width)
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(8.dp)
+            ) {
+                Text("Col 1", style = MaterialTheme.typography.bodyLarge)
+            }
+
+            // Second column with weight 2 (medium width)
+            Column(
+                modifier = Modifier
+                    .weight(2f)
+                    .padding(8.dp)
+            ) {
+                Text("Col 2", style = MaterialTheme.typography.bodyLarge)
+            }
+
+            // Third column with weight 3 (largest width)
+            Column(
+                modifier = Modifier
+                    .weight(3f)
+                    .padding(8.dp)
+            ) {
+                Text("Col 3", style = MaterialTheme.typography.bodyLarge)
+            }
+        }
+    }
+}
+```
+
+When we click on the first Burger image or in the second we navigate to another screen
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/d31cc38a-9c6b-4090-b296-85cad93da596)
+
+This is the Screen 1. We navigate to this screen when we click on the first burger image
+
+![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/598b15b5-a140-4031-9d7f-abbb609170eb)
 
 ## 2. Starting a new Compose project
 
