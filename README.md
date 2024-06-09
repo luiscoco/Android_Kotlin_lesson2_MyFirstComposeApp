@@ -167,6 +167,43 @@ fun MensajeTarjeta() {
 
 ### 1.5. Create a Column containing three Rows
 
+```kotlin
+package com.example.myfirstapp_text_only
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.Text
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            Column() {
+                Row {
+                    Text(text = " Celda 1.1 ")
+                    Text(text = " Celda 1.2 ")
+                    Text(text = " Celda 1.3 ")
+                }
+                Row {
+                    Text(text = " Celda 2.1 ")
+                    Text(text = " Celda 2.2 ")
+                    Text(text = " Celda 2.3 ")
+
+                }
+                Row {
+                    Text(text = " Celda 3.1 ")
+                    Text(text = " Celda 3.2 ")
+                    Text(text = " Celda 3.3 ")
+                }
+            }
+        }
+    }
+}
+```
+
 ![image](https://github.com/luiscoco/Android_Kotlin_lesson2_MyFirstComposeApp/assets/32194879/a24e5f25-84f3-4d0f-9aec-2d95f280cbd3)
 
 ### 1.6. Create a Row containing an Image and a Column
